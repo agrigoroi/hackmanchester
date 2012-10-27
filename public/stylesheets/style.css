@@ -5,3 +5,10 @@ body {
 a {
   color: #00b7ff;
 }
+.search-box {
+  text-align: center;
+  margin-top: 200px;
+}
+.search-button {
+  margin-top: 10px;
+}

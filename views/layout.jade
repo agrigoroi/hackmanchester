@@ -1,5 +1,5 @@
-doctype 5
-html
+!!! 5
+html(lang="en")
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
@@ -7,4 +7,11 @@ html
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     script(type='text/javascript', src='/js/bootstrap.min.js')
   body
+    div.navbar.navbar-inverse.navbar-fixed-top
+      div.navbar-inner
+        div.container-fluid
+          a(class="btn btn-navbar", data-toggle="collapse", data-target=".nav-collapse")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
     block content

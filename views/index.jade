@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div.container-fluid
+    div.row-fluid
+      div.search-box
+        form.search-form(action="/search")
+          input.input-xxlarge.search-query(type="text", placeholder="Find city...")
+          br
+          button.btn.btn-primary.search-button(type="submit") Search
