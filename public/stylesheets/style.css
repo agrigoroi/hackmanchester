@@ -15,3 +15,6 @@ a {
 .search-button {
   margin-top: 10px;
 }
+div#map_canvas {
+  height: 550px;
+}

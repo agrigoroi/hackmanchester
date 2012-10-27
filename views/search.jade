@@ -1,6 +1,17 @@
 extends layout
 
 block content
-  div.container-fluid
-    div.row-fluid
-      h1 You search for #{city}
+  div#map_canvas.span9
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbjWBf6HYAhNcEyNFfxU2qdh6fzw7HJ5Y&sensor=true"></script>
+  script
+    function initialize() {
+      var mapOptions = {
+        center: new google.maps.LatLng(-34.397, 150.644),
+        zoom: 8,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("map_canvas"),
+          mapOptions);
+    }
+    initialize();
+
