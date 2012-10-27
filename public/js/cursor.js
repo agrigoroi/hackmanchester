@@ -1,4 +1,4 @@
 window.onload = function() {
-  //document.getElementById("search-form").focus();
-  document.myform.myfield.focus();
+  document.getElementById('city').focus();
+  //document.myform.myfield.focus();
 };
