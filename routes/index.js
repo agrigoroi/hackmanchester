@@ -6,3 +6,7 @@
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
+
+exports.search = function(req, res){
+  res.render('search', {title: 'Search', city: req.param('city', null)})
+}
