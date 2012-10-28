@@ -9,6 +9,7 @@ block content
     script
       var map;
       var service;
+      var events = [];
       var infowindow = new google.maps.InfoWindow;
 
       function initialize() {
@@ -35,7 +36,34 @@ block content
         resultelem.innerHTML = "<div class=\"list-heading\"><h3>#{city}</h3><div><button id=\"path\">Find Shortest Path</button>";
         if(status == google.maps.places.PlacesServiceStatus.OK)
           for(var i=0; i<min(result.length, 10); i++)
+          {
+            events.push(result[i]);
+            console.log(events[i]);
             createMarker(result[i]);
+          }
+        $('#path').click(function(){
+          var dir = new google.maps.DirectionsService();
+          dir.route({
+            destination: events[0].name,
+            optimizeWaypoints: true,
+            origin: events[1].name,
+            travelMode: google.maps.TravelMode.DRIVING,
+            waypoints: [{location: events[2].name}, {location: events[3].name}, {location: events[4].name}]
+          }, function(res, status)
+          {
+            if(status!=="OK")
+              alert("something went wrong! " + status);
+            else
+            {
+              var mapren = google.maps.DirectionsRenderer({
+                directions: res,
+                draggable: true,
+                map: map,
+                panel: document.getElementById("result")
+              });
+            }
+          });
+        });
       }
 
       function createMarker(place)
@@ -82,7 +110,4 @@ block content
       }
 
       initialize();
-
-      $(button['#path']).click(function(){
-        alert("hi There!");
-      })
+      
