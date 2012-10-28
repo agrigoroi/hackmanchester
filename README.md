@@ -18,8 +18,11 @@ and satellite data. The shortest distance was calculated by the application of t
 Travelling Salesman problem.
 
 The site is made in nodejs and is cross compatible on all operating systems! During the hackathon we used three diferent
-operating systems to develop the website. Aqib (being the rich guy!) used MAC OS. Neha used Windows
+operating systems to develop the website. Aqib used MAC OS (because he is a Apple fanboy). Neha used Windows
 (cause she hates Linux). And Alex used Linux.
+
+To run the app on your server, install nodejs, download the source-code of the app, run "npm install" to install all
+the required packages and then run the app using "node app.js". 
 
 <dl>
 <dt> Team Members </dt>
