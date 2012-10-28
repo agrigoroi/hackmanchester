@@ -4,7 +4,7 @@
  */
 
 var http = require("http");
-var numberOfCityInHeader = 10;
+var numberOfCityInHeader = 11;
 
 getRandomCities = function(number)
 {
@@ -20,7 +20,7 @@ gencity = function(city){
   var options = {
     host:"maps.googleapis.com",
     port:80,
-    path:"/maps/api/geocode/json?address="+escape(city)+"&sensor=true"
+    path:"/maps/api/geocode/json?address="+escape(city+", Europe")+"&sensor=true"
   }
   return options;
 }

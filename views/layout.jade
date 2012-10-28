@@ -22,10 +22,14 @@ html(lang="en")
             span.icon-bar
           a.brand(href="/") Home
           div.nav-collapse.collapse
-            ul.nav
-              each city in cities
-                li
-                  a(href='search?city=#{city}')= city
+            form.pull-right.search-form(action="/search", method="post")
+              input.right-search.input-large.search-query(type="text", placeholder="Find city...", name="city", id="city")
+              ul.nav
+                each city in cities
+                  li
+                    a(href='search?city=#{city}')= city
+                  li 
+
 
     block content
     
