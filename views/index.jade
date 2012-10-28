@@ -4,6 +4,8 @@ block content
   div.container-fluid
     div.row-fluid
       div.search-box
+        if(error==true)
+          h3#errorstat This place does not exist. Please try again.
         form.search-form(action="/search", method="post")
           input.input-xxlarge.search-query(type="text", placeholder="Find city...", name="city", id="city")
           br
