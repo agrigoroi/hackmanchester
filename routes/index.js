@@ -56,7 +56,7 @@ exports.search = function(req, res){
         res.render('index', { title: 'Express',  background:true , error:true, cities: getRandomCities(numberOfCityInHeader)});
       else{
         var location = result.results[0].geometry.location;
-        res.render('search', {title: 'Search', lat: location.lat, lng: location.lng, background:false, cities: getRandomCities(numberOfCityInHeader)});
+        res.render('search', {title: 'Search', lat: location.lat, lng: location.lng, background:false, cities: getRandomCities(numberOfCityInHeader), city:city});
       }
     });
   });

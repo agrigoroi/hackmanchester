@@ -31,6 +31,8 @@ block content
 
       function callback(result, status)
       {
+        var resultelem = document.getElementById('result');
+        resultelem.innerHTML = "<div class=\"list-heading\"><h3>#{city}</h3><div>";
         if(status == google.maps.places.PlacesServiceStatus.OK)
           for(var i=0; i<min(result.length, 10); i++)
             createMarker(result[i]);
