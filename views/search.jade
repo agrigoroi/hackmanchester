@@ -42,8 +42,13 @@ block content
         position: placeLoc
       });
       console.log(place);
+
+      var type = place.types[0];
+      for(var i=1;i<place.types.length;i++)
+        type = type + ", " + place.types[i];
+
       google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name + "<br />" +  place.rating);
+        infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /> Type:" + type);
         infowindow.open(map, this);
       });
     }
