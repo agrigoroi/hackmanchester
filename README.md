@@ -1,6 +1,7 @@
 Tourist Tips at Hack Manchester
 ==================================
 *<dl><dt> The site is live!!! Check it out [here](http://54.247.71.56:3000) </dt></dl>*
+
 We are a team of three second year Computer Science students from the University of Manchester 
 and we decided to develop a small website for displaying the famous tourist locations in any 
 city around the world. 
@@ -15,6 +16,10 @@ interest like food/drink , beaches , heritage sites and much more.
 We developed the website by using Google APIs which are the most reliable on displaying maps
 and satellite data. The shortest distance was calculated by the application of the classic 
 Travelling Salesman problem.
+
+The site is made in nodejs and is cross compatible on all operating systems! During the hackathon we used three diferent
+operating systems to develop the website. Aqib (being the rich guy!) used MAC OS. Neha used Windows
+(cause she hates Linux). And Alex used Linux.
 
 <dl>
 <dt> Team Members </dt>
