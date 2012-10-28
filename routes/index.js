@@ -35,7 +35,11 @@ exports.search = function(req, res){
     city = req.query["city"];
   else
     city = req.param('city', null);
-
+  if((typeof(city) === "Undefined")||(city === ""))
+  {
+    city = getRandomCities(1);
+    city = city[0];
+  }
   http.get(gencity(city), function(googleres){
     var pagedata="";
     googleres.setEncoding("utf-8");
