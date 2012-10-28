@@ -21,17 +21,14 @@ a {
 }
 div#map_canvas {
   height: 550px;
-<<<<<<< HEAD
   *margin-top: 4px;
   line-height: 30px;
-=======
   -moz-border-radius: 10px;
   border-radius: 100px;
   -webkit-border-radius: 10px;
   border: 4px solid #575757;
   margin: 0;
   padding: 0;
->>>>>>> gnk;lv
 }
 h3#errorstat {
   color: #a02422;
