@@ -31,8 +31,11 @@ exports.index = function(req, res){
 
 exports.search = function(req, res){
   var city;
-  if(typeof(req.query["city"]) !== "Undefined")
+  if(typeof(req.query["city"]) !== "undefined")
+  {
     city = req.query["city"];
+    console.log(req.query["city"]);
+  }
   else
     city = req.param('city', null);
   if((typeof(city) === "Undefined")||(city === ""))
