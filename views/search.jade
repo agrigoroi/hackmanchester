@@ -41,15 +41,13 @@ block content
       {
         var placeLoc = place.geometry.location;
         // prepare marker options
-        var fillStyle = new FillStyle({color: 0x00ff00, alpha: .7});
-        var opts  = new google.maps.MarkerOptions({fill});
-        //opts.fillStyle = new FillStyle({color: 0x00ff00, alpha: .7});
+        var opts  = new google.maps.MarkerOptions({icon:icon: 'http://www.portlandbiblecollege.org/files/6712/6290/3212/Hotel%20Icon%20black.png'});
+        opts.fillStyle = new FillStyle({color: 0x00ff00, alpha: .7});
         //opts.label = label;
         //opts.tooltip = tooltip;
         var marker = new google.maps.Marker({
         map: map,
-        flat:flase,
-        icon: 'http://www.portlandbiblecollege.org/files/6712/6290/3212/Hotel%20Icon%20black.png',
+        flat:false,
         position: placeLoc
         });
         
