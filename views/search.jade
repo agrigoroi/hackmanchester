@@ -20,7 +20,7 @@ block content
       
       var request = {
         location: loc,
-        radius: 500000
+        radius: 5000
       };
 
       service = new google.maps.places.PlacesService(map);
@@ -41,8 +41,9 @@ block content
         map: map,
         position: placeLoc
       });
+      console.log(place);
       google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name + "<br />" +  place.rating + "<br />" + place.formatted_phone_number);
+        infowindow.setContent(place.name + "<br />" +  place.rating);
         infowindow.open(map, this);
       });
     }
