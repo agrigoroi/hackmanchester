@@ -2,16 +2,58 @@ extends layout
 
 block content
   div#map_canvas.span9
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbjWBf6HYAhNcEyNFfxU2qdh6fzw7HJ5Y&sensor=true"></script>
+  div#result.span3
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCbjWBf6HYAhNcEyNFfxU2qdh6fzw7HJ5Y&libraries=places&sensor=true"></script>
   script
+    var map;
+    var service;
+    var infowindow = new google.maps.InfoWindow;
+
     function initialize() {
-      var mapOptions = {
-        center: new google.maps.LatLng(#{lat}, #{lng}),
-        zoom: 12,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+      var loc = new google.maps.LatLng(#{lat}, #{lng});
+      map = new google.maps.Map(document.getElementById("map_canvas"),
+        {
+          center: loc,
+          zoom: 12,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+      
+      var request = {
+        location: loc,
+        radius: 500000
       };
-      var map = new google.maps.Map(document.getElementById("map_canvas"),
-          mapOptions);
+
+      service = new google.maps.places.PlacesService(map);
+      service.nearbySearch(request, callback);
     }
+
+    function callback(result, status)
+    {
+      if(status == google.maps.places.PlacesServiceStatus.OK)
+        for(var i=0; i<min(result.length, 10); i++)
+          createMarker(result[i]);
+    }
+
+    function createMarker(place)
+    {
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: placeLoc
+      });
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name + "<br />" + place.formatted_address +"<br />" + place.website + "<br />" + place.rating + "<br />" + place.formatted_phone_number);
+        infowindow.open(map, this);
+      });
+    }
+
+    function min(a, b)
+    {
+      if(a<b)
+        return a;
+      else
+        return b;
+    }
+
     initialize();
 
