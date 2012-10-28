@@ -67,23 +67,94 @@ block content
         deciding_img = place.types[0];
         for(var i=1;i<place.types.length;i++)
           {
-            if(deciding_img==="museum")
+            if(deciding_img==="museum"){
               resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"museum\" src=\"/img/museum.jpg\"/></div>";
-            if(deciding_img==="park")
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /> Type: <img name=\"museum\" src=\"/img/museum.jpg\"/>");
+              infowindow.open(map, this);
+              });
+            }//end if
+            if(deciding_img==="park"){
               resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"park\" src=\"/img/park.png\"/></div>";
-            if(deciding_img==="lodging")
-              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"lodging\" src=\"/img/hotels.png\"/></div>";  
-            if(deciding_img==="restaurant") 
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /> <img name=\"park\" src=\"/img/park.png\"/>");
+              infowindow.open(map, this);
+            });}
+            //end if
+            if(deciding_img==="lodging"){
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"lodging\" src=\"/img/hotels.png\"/></div>";
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /> <img name=\"lodging\" src=\"/img/hotels.png\"/>");
+              infowindow.open(map, this);
+            });}//end if
+            if(deciding_img==="restaurant") {
               resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"restaurant\" src=\"/img/icon43.png\"/></div>"; 
-            if(deciding_img==="bar")
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /><img name=\"restaurant\" src=\"/img/icon43.png\"/>");
+              infowindow.open(map, this);
+            });}//end if
+            if(deciding_img==="bar"){
               resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"bar\" src=\"/img/bar.png\"/></div>"; 
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /><img name=\"bar\" src=\"/img/bar.png\"/>" );
+              infowindow.open(map, this);
+            });}//end if
+            if(deciding_img==="book_store"){
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"book_store\" src=\"/img/bookstore_icon_up.png\"/></div>"; 
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /><img name=\"book_store\" src=\"/img/bookstore_icon_up.png\"/>" );
+              infowindow.open(map, this);
+            });}//end if
+            if(deciding_img==="movie_theater"){
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"movie_theater\" src=\"/img/movie-theater.png\"/></div>"; 
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /><img name=\"movie-theater\" src=\"/img/movie-theater.png\"/>" );
+              infowindow.open(map, this);
+            });}//end if
+            if(deciding_img==="cafe"){
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"cafe\" src=\"/img/cafe.png\"/></div>"; 
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /><img name=\"cafe\" src=\"/img/cafe.png\"/>" );
+              infowindow.open(map, this);
+            });}//end if
+            if(deciding_img==="stadium"){
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"stadium\" src=\"/img/Stadium.bmp\"/></div>"; 
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /><img name=\"stadium\" src=\"/img/Stadium.bmp\"/>" );
+              infowindow.open(map, this);
+            });}//end if
+            if(deciding_img==="food"){
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"food\" src=\"/img/food.jpg\"/></div>"; 
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /><img name=\"food\" src=\"/img/food.jpg\"/>" );
+              infowindow.open(map, this);
+            });}//end if
+            if(deciding_img==="electronics_store"){
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"electronics_store\" src=\"/img/elec.png\"/></div>"; 
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /><img name=\"electronics_store\" src=\"/img/elec.png\"/>" );
+              infowindow.open(map, this);
+            });}//end if
+            if(deciding_img==="store"){
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"store\" src=\"/img/store.png\"/></div>"; 
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /><img name=\"store\" src=\"/img/store.png\"/>" );
+              infowindow.open(map, this);
+            });}//end if
+            if(deciding_img==="establishment"){
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"est\" src=\"/img/establishment.jpg\"/></div>"; 
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /><img name=\"est\" src=\"/img/establishment.jpg\"/>" );
+              infowindow.open(map, this);
+            });}//end if
+            if(deciding_img==="locality"){
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"locality\" src=\"/img/locality.png\"/></div>"; 
+              google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /><img name=\"locality\" src=\"/img/locality.png\"/>" );
+              infowindow.open(map, this);
+            });}//end if
             deciding_img = deciding_img + ", " + place.types[i];
-          }//for
-    
-          google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /> Type:" + deciding_img);
-          infowindow.open(map, this);
-        });
+          }//fo
       }
 
       function min(a, b)
