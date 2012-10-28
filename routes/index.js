@@ -3,7 +3,7 @@
  */
 
 var http = require("http");
-var numberOfCityInHeader = 11;
+var numberOfCityInHeader = 8;
 
 getRandomCities = function(number)
 {
