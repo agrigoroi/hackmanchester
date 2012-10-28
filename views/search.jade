@@ -4,7 +4,7 @@ block content
   div.container-fluid
    div.row-fluid
     div#map_canvas.span8
-    div#result.span4
+    div#result.span4.offset8
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCbjWBf6HYAhNcEyNFfxU2qdh6fzw7HJ5Y&libraries=places&sensor=true"></script>
     script
       var map;
@@ -37,6 +37,7 @@ block content
           for(var i=0; i<min(result.length, 10); i++)
             createMarker(result[i]);
       }
+
 
       function createMarker(place)
       {
