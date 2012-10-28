@@ -58,18 +58,31 @@ block content
         });
      
         var type = place.types[0];
-        for(var i=1;i<place.types.length;i++)
-          type = type + ", " + place.types[i];
+        
 
         var rating = "";
         if(typeof(place.rating) !== "undefined")
           rating = "Rating: " + place.rating + "<br/> ";
 
-        var resultelem = document.getElementById('result');
-        resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "Type: " + type + "</p></div>";
-
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /> Type:" + type);
+        var resultelem = document.getElementById('result'); 
+        deciding_img = place.types[0];
+        for(var i=1;i<place.types.length;i++)
+          {
+            if(deciding_img==="museum")
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"museum\" src=\"/img/museum.jpg\"/></div>";
+            if(deciding_img==="park")
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"park\" src=\"/img/park.png\"/></div>";
+            if(deciding_img==="lodging")
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"lodging\" src=\"/img/hotels.png\"/></div>";  
+            if(deciding_img==="restaurant") 
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"restaurant\" src=\"/img/icon43.png\"/></div>"; 
+            if(deciding_img==="bar")
+              resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "</p><img name=\"bar\" src=\"/img/bar.png\"/></div>"; 
+            deciding_img = deciding_img + ", " + place.types[i];
+          }//for
+    
+          google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /> Type:" + deciding_img);
           infowindow.open(map, this);
         });
       }
