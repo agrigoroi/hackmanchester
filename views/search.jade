@@ -48,8 +48,12 @@ block content
         for(var i=1;i<place.types.length;i++)
           type = type + ", " + place.types[i];
 
+        var rating = "";
+        if(typeof(place.rating) !== "undefined")
+          rating = "Rating: " + place.rating + "<br/> ";
+
         var resultelem = document.getElementById('result');
-        resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>Rating: " +  place.rating + "<br /> Type: " + type + "</p></div>";
+        resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>" + rating + "Type: " + type + "</p></div>";
 
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /> Type:" + type);
