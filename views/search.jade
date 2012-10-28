@@ -1,65 +1,69 @@
 extends layout
 
 block content
-  div#map_canvas.span9
-  div#result.span3
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCbjWBf6HYAhNcEyNFfxU2qdh6fzw7HJ5Y&libraries=places&sensor=true"></script>
-  script
-    var map;
-    var service;
-    var infowindow = new google.maps.InfoWindow;
+  div.container-fluid
+   div.row-fluid
+    div#map_canvas.span8
+    div#result.span4
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCbjWBf6HYAhNcEyNFfxU2qdh6fzw7HJ5Y&libraries=places&sensor=true"></script>
+    script
+      var map;
+      var service;
+      var infowindow = new google.maps.InfoWindow;
 
-    function initialize() {
-      var loc = new google.maps.LatLng(#{lat}, #{lng});
-      map = new google.maps.Map(document.getElementById("map_canvas"),
-        {
-          center: loc,
-          zoom: 12,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+      function initialize() {
+        var loc = new google.maps.LatLng(#{lat}, #{lng});
+        map = new google.maps.Map(document.getElementById("map_canvas"),
+          {
+            center: loc,
+            zoom: 12,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          });
+        
+        var request = {
+          location: loc,
+          radius: 5000
+        };
+
+        service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, callback);
+      }
+
+      function callback(result, status)
+      {
+        if(status == google.maps.places.PlacesServiceStatus.OK)
+          for(var i=0; i<min(result.length, 10); i++)
+            createMarker(result[i]);
+      }
+
+      function createMarker(place)
+      {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: placeLoc
         });
-      
-      var request = {
-        location: loc,
-        radius: 5000
-      };
+        
+        var type = place.types[0];
+        for(var i=1;i<place.types.length;i++)
+          type = type + ", " + place.types[i];
 
-      service = new google.maps.places.PlacesService(map);
-      service.nearbySearch(request, callback);
-    }
+        var resultelem = document.getElementById('result');
+        resultelem.innerHTML = resultelem.innerHTML + "<div class=\"hero-unit\"><h5>" + place.name + "</h5><p>Rating: " +  place.rating + "<br /> Type: " + type + "</p></div>";
 
-    function callback(result, status)
-    {
-      if(status == google.maps.places.PlacesServiceStatus.OK)
-        for(var i=0; i<min(result.length, 10); i++)
-          createMarker(result[i]);
-    }
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /> Type:" + type);
+          infowindow.open(map, this);
+        });
+      }
 
-    function createMarker(place)
-    {
-      var placeLoc = place.geometry.location;
-      var marker = new google.maps.Marker({
-        map: map,
-        position: placeLoc
-      });
-      console.log(place);
+      function min(a, b)
+      {
+        if(a<b)
+          return a;
+        else
+          return b;
+      }
 
-      var type = place.types[0];
-      for(var i=1;i<place.types.length;i++)
-        type = type + ", " + place.types[i];
-
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name + "<br />Rating: " +  place.rating + "<br /> Type:" + type);
-        infowindow.open(map, this);
-      });
-    }
-
-    function min(a, b)
-    {
-      if(a<b)
-        return a;
-      else
-        return b;
-    }
-
-    initialize();
+      initialize();
 
