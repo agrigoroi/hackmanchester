@@ -9,7 +9,7 @@ gencity = function(city){
   var options = {
     host:"maps.googleapis.com",
     port:80,
-    path:"/maps/api/geocode/json?address="+city+"&sensor=false"
+    path:"/maps/api/geocode/json?address="+escape(city)+"&sensor=false"
   }
   return options;
 }
