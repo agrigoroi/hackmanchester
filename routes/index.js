@@ -26,7 +26,7 @@ gencity = function(city){
 }
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express',  background:true, error:false, cities: getRandomCities(numberOfCityInHeader) });
+  res.render('index', { title: 'Tourist Tips',  background:true, error:false, cities: getRandomCities(numberOfCityInHeader) });
 };
 
 exports.search = function(req, res){
@@ -53,10 +53,10 @@ exports.search = function(req, res){
     googleres.on('end', function(){
       result = JSON.parse(pagedata);
       if (result.status=="ZERO_RESULTS")
-        res.render('index', { title: 'Express',  background:true , error:true, cities: getRandomCities(numberOfCityInHeader)});
+        res.render('index', { title: 'Tourist Tips',  background:true , error:true, cities: getRandomCities(numberOfCityInHeader)});
       else{
         var location = result.results[0].geometry.location;
-        res.render('search', {title: 'Search', lat: location.lat, lng: location.lng, background:false, cities: getRandomCities(numberOfCityInHeader), city:result.results[0].formatted_address});
+        res.render('search', {title: 'Tourist Tips - Search Result', lat: location.lat, lng: location.lng, background:false, cities: getRandomCities(numberOfCityInHeader), city:result.results[0].formatted_address});
       }
     });
   });
