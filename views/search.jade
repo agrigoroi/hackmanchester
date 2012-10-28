@@ -38,7 +38,6 @@ block content
             createMarker(result[i]);
       }
 
-
       function createMarker(place)
       {
         var placeLoc = place.geometry.location;
@@ -46,7 +45,7 @@ block content
         path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
         fillColor: "PINK",
         fillOpacity: 0.8,
-        scale: 6,
+        scale: 8
         strokeColor: "PURPLE",
         strokeWeight: 2
         };
@@ -56,7 +55,7 @@ block content
           icon:goldStar,
           position: placeLoc
         });
-        
+     
         var type = place.types[0];
         for(var i=1;i<place.types.length;i++)
           type = type + ", " + place.types[i];
