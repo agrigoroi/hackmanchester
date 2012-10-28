@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 extends layout
 
 block content
@@ -68,73 +67,3 @@ block content
 
       initialize();
 
-=======
-extends layout
-
-block content
-  div#map_canvas.span9
-  div#result.span3
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCbjWBf6HYAhNcEyNFfxU2qdh6fzw7HJ5Y&libraries=places&sensor=true"></script>
-  
-  script
-    var map;
-    var service;
-    var opts = new google.maps.MarkerOptions();
-    var infowindow = new google.maps.InfoWindow;
-
-    function initialize() {
-      var loc = new google.maps.LatLng(#{lat}, #{lng});
-      map = new google.maps.Map(document.getElementById("map_canvas"),
-        {
-          center: loc,
-          zoom: 12,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-      
-      var request = {
-        location: loc,
-        radius: 5000
-      };
-
-      service = new google.maps.places.PlacesService(map);
-      service.nearbySearch(request, callback);
-    }
-
-    function callback(result, status)
-    {
-      if(status == google.maps.places.PlacesServiceStatus.OK)
-        for(var i=0; i<min(result.length, 10); i++)
-          createMarker(result[i]);
-    }
-
-    function createMarker(place)
-    {
-      var placeLoc = place.geometry.location;
-      // prepare marker options
-      opts.fillStyle = new FillStyle({color: 0x00ff00, alpha: .7});
-      opts.hasShadow = true;
-      opts.label = label;
-      opts.tooltip = tooltip;
-
-      var marker = new google.maps.Marker({
-        map: map,
-        position: placeLoc
-      });
-      console.log(place);
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name + "<br />" +  place.rating);
-        infowindow.open(map, this);
-      });
-    }
-
-    function min(a, b)
-    {
-      if(a<b)
-        return a;
-      else
-        return b;
-    }
-
-    initialize();
-
->>>>>>> ewrgbsgf
