@@ -10,6 +10,7 @@ block content
       var map;
       var service;
       var infowindow = new google.maps.InfoWindow;
+      var events = [];
 
       function initialize() {
         var loc = new google.maps.LatLng(#{lat}, #{lng});
@@ -35,11 +36,28 @@ block content
         resultelem.innerHTML = "<div class=\"list-heading\"><h3>#{city}</h3><div>";
         if(status == google.maps.places.PlacesServiceStatus.OK)
           for(var i=0; i<min(result.length, 10); i++)
-            createMarker(result[i]);
+          {
+            events.push(result[i]);
+            createMarker(i);
+      }
+
+      function distance(a, b)
+      {
+        var R = 6371; // km
+        var dLat = (a.lat-b.lat).toRad();
+        var dLon = (a.lng-b.lng).toRad();
+        var lat1 = b.lat.toRad();
+        var lat2 = a.lat.toRad();
+
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+        return (R * c);
       }
 
       function createMarker(place)
       {
+        place = events[i];
         var placeLoc = place.geometry.location;
         var goldStar = {
         path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
