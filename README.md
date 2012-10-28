@@ -24,6 +24,8 @@ operating systems to develop the website. Aqib used MAC OS (because he is a Appl
 To run the app on your server, install nodejs, download the source-code of the app, run "npm install" to install all
 the required packages and then run the app using "node app.js". 
 
+Most of the awesome code endeup being burried in views/search.jade :)
+
 <dl>
 <dt> Team Members </dt>
 <dl>
