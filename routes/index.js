@@ -20,7 +20,7 @@ gencity = function(city){
   var options = {
     host:"maps.googleapis.com",
     port:80,
-    path:"/maps/api/geocode/json?address="+escape(city)+"&sensor=false"
+    path:"/maps/api/geocode/json?address="+escape(city)+"&sensor=true"
   }
   return options;
 }
@@ -55,8 +55,9 @@ exports.search = function(req, res){
       if (result.status=="ZERO_RESULTS")
         res.render('index', { title: 'Express',  background:true , error:true, cities: getRandomCities(numberOfCityInHeader)});
       else{
+        console.log(result.results[0]);
         var location = result.results[0].geometry.location;
-        res.render('search', {title: 'Search', lat: location.lat, lng: location.lng, background:false, cities: getRandomCities(numberOfCityInHeader), city:city});
+        res.render('search', {title: 'Search', lat: location.lat, lng: location.lng, background:false, cities: getRandomCities(numberOfCityInHeader), city:result.results[0].formatted_address});
       }
     });
   });
