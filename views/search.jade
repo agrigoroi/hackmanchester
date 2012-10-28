@@ -39,8 +39,18 @@ block content
       function createMarker(place)
       {
         var placeLoc = place.geometry.location;
+        var goldStar = {
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        fillColor: "PINK",
+        fillOpacity: 0.8,
+        scale: 6,
+        strokeColor: "PURPLE",
+        strokeWeight: 2
+        };
+
         var marker = new google.maps.Marker({
           map: map,
+          icon:goldStar,
           position: placeLoc
         });
         

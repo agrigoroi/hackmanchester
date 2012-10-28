@@ -2,6 +2,7 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align: center;
+  background: #212121;
 }
 .hero-unit {
   margin: 10px 10px 10px 10px;
@@ -20,6 +21,8 @@ a {
 }
 div#map_canvas {
   height: 550px;
+  *margin-top: 4px;
+  line-height: 30px;
 }
 h3#errorstat {
   color: #a02422;
