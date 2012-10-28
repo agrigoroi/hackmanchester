@@ -33,9 +33,6 @@ div#map_canvas {
 h3#errorstat {
   color: #a02422;
 }
-list-heading {
-  -moz-border-radius: 10px;
-  border-radius: 100px;
-  -webkit-border-radius: 10px;
-  border: 4px solid #575757;
+.list-heading {
+  color: #eee;
 }
