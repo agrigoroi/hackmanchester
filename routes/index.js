@@ -1,10 +1,16 @@
-
 /*
  * GET home page.
  */
 
 var http = require("http");
 var numberOfCityInHeader = 10;
+// Calculate the height of the header
+var headerHeight = 0;
+var header = document.getElementById("applicationHeader");
+if(header != null)
+{
+  headerHeight = header.offsetHeight;
+}
 
 getRandomCities = function(number)
 {
