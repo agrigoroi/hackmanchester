@@ -6,6 +6,7 @@
 var http = require("http");
 
 gencity = function(city){
+  
   var options = {
     host:"maps.googleapis.com",
     port:80,
