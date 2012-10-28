@@ -1,5 +1,6 @@
 Tourist Tips at Hack Manchester
 ==================================
+*<dl><dt> The site is live!!! Check it out [here](http://54.247.71.56:3000) </dt></dl>*
 We are a team of three second year Computer Science students from the University of Manchester 
 and we decided to develop a small website for displaying the famous tourist locations in any 
 city around the world. 
