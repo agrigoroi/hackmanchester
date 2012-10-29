@@ -36,7 +36,7 @@ block content
         var resultelem = document.getElementById('result');
         resultelem.innerHTML = "<div class=\"list-heading\"><h3>#{city}</h3><div><button id=\"path\">Find Shortest Path</button>";
         if(status == google.maps.places.PlacesServiceStatus.OK)
-          for(var i=0; i<min(result.length, 10); i++)
+          for(var i=0; i<min(result.length, numberOfMarkers); i++)
           {
             events.push(result[i]);
             createMarker(result[i]);
